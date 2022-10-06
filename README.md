@@ -13,4 +13,4 @@ A discord bot that can control the users pc as long as they run the code
 
 5. Start the bot
 
-6. Go to restart command and paste your discord id
+6. Go to restart command and paste your discord id (optional)
