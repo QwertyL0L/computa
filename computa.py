@@ -383,4 +383,4 @@ async def on_command_error(ctx, error):
          if isinstance(error, commands.CommandOnCooldown):
             await ctx.send(f"Slow down! Try again in **{round(error.retry_after)}s.**")
 
-bot.run("TOKEN")
+bot.run("TOKEN HERE")
