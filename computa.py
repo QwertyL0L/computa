@@ -243,6 +243,12 @@ async def bcalc(ctx, * , firstnumber: str, secondnumber: str):
 
 @bot.command()
 @commands.cooldown(1, 10, commands.BucketType.user)
+async def close(ctx):
+    await ctx.reply("***Closed the current window***")
+    pyautogui.hotkey('alt',"f4")
+
+@bot.command()
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def hotkey(ctx,*,s1: str, s2: str):
     await ctx.reply(f"***Successfully Clicked {s1} + {s2}***")
     pyautogui.hotkey(f"{s1}",f"{s2}")
@@ -292,6 +298,84 @@ async def ytvideo(ctx, id: str):
     wb.open_new(f"https://www.youtube.com/watch?v={id}")
     await ctx.reply("***Opened A Youtube Video***")
 
+@bot.command()
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def r34(ctx, *, tag: str):
+    wb.open_new(f"https://rule34.xxx/index.php?page=post&s=list&tags={tag}")
+    await ctx.reply(f"***Searched {tag} on rule34.xxx***")
+
+@bot.command()
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def pornhub(ctx, *, query: str):
+    wb.open_new(f"https://www.pornhub.com/video/search?search={query}")
+    await ctx.reply(f"***Searched {query} On pornhub.com***")
+
+@bot.command()
+async def help1(ctx):
+    embed = discord.Embed(color=0x0BA8B4, title="App Commands", url="https://cdn.discordapp.com/attachments/1004119942750273688/1007765870166167552/help.txt")
+    embed.add_field(name="autoclicker", value="opens autoclicker", inline=False)
+    embed.add_field(name="cmdprompt", value="opens command prompt", inline=False)
+    embed.add_field(name="devtools", value="opens devtools", inline=False)
+    embed.add_field(name="error", value="opens a error window", inline=False)
+    embed.add_field(name="minecraft", value="opens minecraft", inline=False)
+    embed.add_field(name="roblox launcher", value="opens roblox launcher", inline=False)
+    embed.add_field(name="lunarclient", value="opens lunarclient", inline=False)
+    embed.add_field(name="calc", value="opens calculator", inline=False)
+    embed.add_field(name="timer", value="opens timer", inline=False)
+    embed.set_footer(text="Page 1/4")
+    embed.set_footer(text="Type Computa help2 for second page")
+    embed.set_footer(text=".txt format: https://cdn.discordapp.com/attachments/1004119942750273688/1007765870166167552/help.txt")
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def help2(ctx):
+    embed = discord.Embed(color=0x0BA8B4, title="PC Commands", url="https://cdn.discordapp.com/attachments/1004119942750273688/1007765870166167552/help.txt")
+    embed.add_field(name="vup", value="turn up pc volume", inline=False)
+    embed.add_field(name="vdown", value="turn down pc volume", inline=False)
+    embed.add_field(name="bup", value="turn up brightness", inline=False)
+    embed.add_field(name="bdown", value="turn down brightness", inline=False)
+    embed.add_field(name="msgbox", value="opens msgbox", inline=False)
+    embed.add_field(name="screenshot", value="take a screenshot of pc", inline=False)
+    embed.add_field(name="hotkeyhold", value="presses hotkey while holding windowskey", inline=False)
+    embed.set_footer(text="Page 2/4")
+    embed.set_footer(text="Type Computa help3 for third page")
+    embed.set_footer(text=".txt format: https://cdn.discordapp.com/attachments/1004119942750273688/1007765870166167552/help.txt")
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def help3(ctx):
+    embed = discord.Embed(color=0x0BA8B4, title="Broswer Commands", url="https://cdn.discordapp.com/attachments/1004119942750273688/1007765870166167552/help.txt")
+    embed.add_field(name="maps", value="opens google maps", inline=False)
+    embed.add_field(name="edgewindow", value="opens new broswer window", inline=False)
+    embed.add_field(name="roblox", value="opens roblox.com", inline=False)
+    embed.add_field(name="robloxsearch", value="search any roblox user with their ID", inline=False)
+    embed.add_field(name="snake", value="opens google snake", inline=False)
+    embed.add_field(name="tab", value="opens new tab", inline=False)
+    embed.add_field(name="translate", value="opens google translate", inline=False)
+    embed.add_field(name="url", value="opens any url", inline=False)
+    embed.add_field(name="ytsearch", value="search youtube for videos", inline=False)
+    embed.add_field(name="uselessfacts", value="opens useless facts api website", inline=False)
+    embed.add_field(name="devtools", value="opens devtools", inline=False)
+    embed.add_field(name="bcalc", value="opens calculator in broswer", inline=False)
+    embed.add_field(name="ngrams", value="opens google ngrams", inline=False)
+    embed.add_field(name="downloads", value="checks browser downloads", inline=False)
+    embed.set_footer(text="Page 3/4")
+    embed.set_footer(text="Type Computa help4 for fourth page")
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def help4(ctx):
+    embed = discord.Embed(color=0x0BA8B4, title="Trolling Commands", url="https://cdn.discordapp.com/attachments/1004119942750273688/1007765870166167552/help.txt")
+    embed.add_field(name="poosay", value="calls you a poosay", inline=False)
+    embed.add_field(name="rickroll", value="opens a rickroll", inline=False)
+    embed.add_field(name="history", value="opens broswer history", inline=False)
+    embed.add_field(name="close", value="closes active window", inline=False)
+    embed.add_field(name="hotkey", value="presses hotkey", inline=False)
+    embed.add_field(name="userecho", value="make wextra type anything", inline=False)
+    embed.set_footer(text="Page 4/4")
+    embed.set_footer(text="END OF PAGE")
+    await ctx.send(embed=embed)
+
 @bot.event
 async def on_command_error(ctx, error):
      if isinstance(error, commands.CommandNotFound): 
@@ -299,4 +383,4 @@ async def on_command_error(ctx, error):
          if isinstance(error, commands.CommandOnCooldown):
             await ctx.send(f"Slow down! Try again in **{round(error.retry_after)}s.**")
 
-bot.run("TOKEN HERE")
+bot.run("TOKEN")
