@@ -1,11 +1,11 @@
 # Computa
-A discord bot that can control the users pc as long as they run the code
+A discord bot that can control the users pc as long as they run the code in computa.py
 
 # Steps
 
-1. Download Visual Studio Code
+1. Download Visual Studio Code (or any code editor that works on pc)
 
-2. Import everything in requirements.txt
+2. Download everything in requirements.txt
 
 3. Get your bots token (dont share your token with anyone)
 
